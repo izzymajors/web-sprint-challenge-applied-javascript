@@ -1,4 +1,33 @@
+import axious from "axios";
+
+axious.get("src/index.html")
+.then((response =>{
+console.log(axious.get("src/index.html"));
+Header(response.data);
+})
+
+.catch((error =>{
+  console.log(error);
+});
+
 const Header = (title, date, temp) => {
+
+  const header = document.createElement("div");
+  const date= document.createElement("span");
+  const title = document.createElement("h1");
+  const temp = document.createElement("span");
+
+
+  header.appendChild(date);
+  header.appendChild(title);
+  header.appendChild(temp);
+
+  header.classList.add("header");
+  header.classList.add("date");
+  header.classList.add({title});
+  header.classList.add("temp");
+
+  return(header);
   // TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
