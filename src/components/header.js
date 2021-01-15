@@ -1,4 +1,8 @@
 import axious from "axios";
+import {Tabs} from "./tabs.";
+import {tabsAppender} from "./tabs";
+import {Card} from "./card";
+import {cardAppender} from "./card";
 
 axious.get("src/index.html")
 .then((response =>{
@@ -24,10 +28,14 @@ const Header = (title, date, temp) => {
 
   header.classList.add("header");
   header.classList.add("date");
-  header.classList.add({title});
+  header.classList.add("title");
   header.classList.add("temp");
 
   return(header);
+
+  
+
+  
   // TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
@@ -43,6 +51,10 @@ const Header = (title, date, temp) => {
 }
 
 const headerAppender = (selector) => {
+  header.appendChild(date);
+  header.appendChild(title);
+  header.appendChild(temp);
+  return(selector);
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.

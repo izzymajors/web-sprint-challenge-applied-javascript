@@ -1,4 +1,28 @@
 const Card = (article) => {
+  const card = document.createElement("div");
+  const headline = document.createElement("div");
+  const author = document.createElement("div");
+  const imgContainer = document.createElement("div");
+  const img = document.createElement("img");
+  const authorName = document.createElement("span");
+  
+  article.appendChild(card);
+  card.appendChild(headline);
+  card.appendChild(author);
+  card.appendChild(imgContainer);
+  card.appendChild(img);
+  card.appendChild(authorName);
+
+  headline.textContent = article.headline;
+  img.setAttribute("src" ,article.img);
+  authorName.textContent = article.authorName;
+
+  card.addEventListener("click", () =>{
+    card.classList.toggle("headline");
+  });
+  return card;
+
+
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -20,6 +44,18 @@ const Card = (article) => {
 }
 
 const cardAppender = (selector) => {
+
+  axious.get("https://lambda-times-api.herokuapp.com/articles");
+  .then((response) =>{
+    console.log(axious.get("https://lambda-times-api.herokuapp.com/articles"));
+    Tabs(response.data);
+ return selector;
+
+  })
+  .catch((error) =>{
+    console.log(error);
+  })
+
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
